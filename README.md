@@ -1,5 +1,5 @@
 # Swift Playground
-This is just a play for me to learn Swift.
+This is just a place for me to learn Swift.
 
 ## Launch a REPL
 To launch a REPL with your library and dependencies loaded, run:
