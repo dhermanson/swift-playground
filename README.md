@@ -1,6 +1,10 @@
 # Swift Playground
 This is just a play for me to learn Swift. I'm basically walking through the totorials on [Swift.org's website](https://www.swift.org/) and getting things up and running in Emacs.
 
+## Branches
+
+### simple-library
+This one demonstrates creating a library with Swift, using [this Swift guide](https://www.swift.org/getting-started/library-swiftpm/) as a starting point.
 
 ## Emacs
 Here are some packages I'm using:
