@@ -3,7 +3,7 @@ This is just a play for me to learn Swift. I'm basically walking through the tot
 
 ## Branches
 
-### simple-library
+### [simple-library](https://github.com/dhermanson/swift-playground/tree/simple-library)
 This one demonstrates creating a library with Swift, using [this Swift guide](https://www.swift.org/getting-started/library-swiftpm/) as a starting point.
 
 ## Emacs
