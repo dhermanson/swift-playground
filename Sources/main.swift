@@ -1,24 +1,20 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+import PostgresKit
 
-import Figlet
+let config = PostgresConnection.Configuration(
+  host: "localhost",
+  port: 5432,
+  username: "user",
+  password: "secret",
+  database: "defaultdb",
+  tls: .disable
+)
 
-class Person {
+let logger = Logger(label: "postgres-logger")
 
-    private let name: String
+let connection = try await PostgresConnection.connect(
+  configuration: config, id: 1, logger: logger
+)
 
-    init(name: String) {
-        self.name = name
-    }
-    
-}
+try await connection.close()
 
-Figlet.say("hello, swift!")
-
-let derick = Person(name: "derick")
-
-print("Hello, world!")
-
-let x = 3
-
-let y = "foobar"
+print("done!!\n")

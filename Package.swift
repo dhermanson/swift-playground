@@ -5,8 +5,12 @@ import PackageDescription
 
 let package = Package(
   name: "MyCLI",
+  platforms: [
+    .macOS(.v10_15)
+  ],
   dependencies: [
     .package(url: "https://github.com/apple/example-package-figlet", branch: "main"),
+    .package(url: "https://github.com/vapor/postgres-kit.git", from: "2.12.2"),
   ],
   targets: [
     // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -14,7 +18,8 @@ let package = Package(
     .executableTarget(
       name: "MyCLI",
       dependencies: [
-        .product(name: "Figlet", package: "example-package-figlet")
+        .product(name: "Figlet", package: "example-package-figlet"),
+        .product(name: "PostgresKit", package: "postgres-kit")
       ],
       path: "Sources"),
   ]
