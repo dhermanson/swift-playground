@@ -1,6 +1,5 @@
 import PostgresKit
 
-
 let logger = Logger(label: "postgres-logger")
 
 let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCount)
@@ -21,23 +20,8 @@ let pool = EventLoopGroupConnectionPool(
 defer {pool.shutdown()}
 
 let x = await try pool.withConnection { conn in
-                conn.query("SELECT 1;")
+                conn.query("SELECT * from person;")
 }.get()
 
 
 print("result: \(x)")
-
-// let res = pools.withConnection { conn -> in
-//                        return "test"
-// }
-
-// pools.withConnection(
-// pools.withConnection { conn in
-// }
-// // pools.withConnection { conn
-// // }
-
-
-// try await connection.close()
-
-print("done!!\n")
