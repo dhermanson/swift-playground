@@ -6,20 +6,22 @@ let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: System.coreCou
 
 defer {try! eventLoopGroup.syncShutdownGracefully()}
 
-let configuration = PostgresConfiguration(
+let configuration = SQLPostgresConfiguration(
   hostname: "localhost",
   username: "user",
   password: "secret",
-  database: "defaultdb"
+  database: "defaultdb",
+  tls: .disable
 )
-let db = PostgresConnectionSource(configuration: configuration)
+let db = PostgresConnectionSource.init(sqlConfiguration: configuration)
+
 let pool = EventLoopGroupConnectionPool(
   source: db,
   on: eventLoopGroup)
 
 defer {pool.shutdown()}
 
-let x = await try pool.withConnection { conn in
+let x = try await pool.withConnection { conn in
                 conn.query("SELECT * from person;")
 }.get()
 
